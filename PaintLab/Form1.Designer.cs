@@ -37,11 +37,11 @@
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topPanel = new System.Windows.Forms.Panel();
             this.drawGroupBox = new System.Windows.Forms.GroupBox();
-            this.lineButton = new System.Windows.Forms.RadioButton();
-            this.rectangleButton = new System.Windows.Forms.RadioButton();
-            this.ellispeButton = new System.Windows.Forms.RadioButton();
-            this.textButton = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textButton = new System.Windows.Forms.RadioButton();
+            this.ellispeButton = new System.Windows.Forms.RadioButton();
+            this.rectangleButton = new System.Windows.Forms.RadioButton();
+            this.lineButton = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.drawGroupBox.SuspendLayout();
@@ -53,7 +53,7 @@
             this.paintPanel.Name = "paintPanel";
             this.paintPanel.Size = new System.Drawing.Size(617, 237);
             this.paintPanel.TabIndex = 0;
-            this.paintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.paintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bottomPanel_Paint);
             // 
             // menuStrip1
             // 
@@ -78,13 +78,13 @@
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -98,7 +98,7 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // topPanel
@@ -123,51 +123,6 @@
             this.drawGroupBox.TabIndex = 0;
             this.drawGroupBox.TabStop = false;
             this.drawGroupBox.Text = "Draw";
-            this.drawGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // lineButton
-            // 
-            this.lineButton.AutoSize = true;
-            this.lineButton.Location = new System.Drawing.Point(24, 19);
-            this.lineButton.Name = "lineButton";
-            this.lineButton.Size = new System.Drawing.Size(45, 17);
-            this.lineButton.TabIndex = 0;
-            this.lineButton.TabStop = true;
-            this.lineButton.Text = "Line";
-            this.lineButton.UseVisualStyleBackColor = true;
-            // 
-            // rectangleButton
-            // 
-            this.rectangleButton.AutoSize = true;
-            this.rectangleButton.Location = new System.Drawing.Point(23, 42);
-            this.rectangleButton.Name = "rectangleButton";
-            this.rectangleButton.Size = new System.Drawing.Size(74, 17);
-            this.rectangleButton.TabIndex = 1;
-            this.rectangleButton.TabStop = true;
-            this.rectangleButton.Text = "Rectangle";
-            this.rectangleButton.UseVisualStyleBackColor = true;
-            // 
-            // ellispeButton
-            // 
-            this.ellispeButton.AutoSize = true;
-            this.ellispeButton.Location = new System.Drawing.Point(23, 65);
-            this.ellispeButton.Name = "ellispeButton";
-            this.ellispeButton.Size = new System.Drawing.Size(55, 17);
-            this.ellispeButton.TabIndex = 2;
-            this.ellispeButton.TabStop = true;
-            this.ellispeButton.Text = "Ellipse";
-            this.ellispeButton.UseVisualStyleBackColor = true;
-            // 
-            // textButton
-            // 
-            this.textButton.AutoSize = true;
-            this.textButton.Location = new System.Drawing.Point(23, 88);
-            this.textButton.Name = "textButton";
-            this.textButton.Size = new System.Drawing.Size(46, 17);
-            this.textButton.TabIndex = 3;
-            this.textButton.TabStop = true;
-            this.textButton.Text = "Text";
-            this.textButton.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -180,6 +135,50 @@
             this.textBox1.Size = new System.Drawing.Size(196, 72);
             this.textBox1.TabIndex = 4;
             this.textBox1.WordWrap = false;
+            // 
+            // textButton
+            // 
+            this.textButton.AutoSize = true;
+            this.textButton.Location = new System.Drawing.Point(23, 88);
+            this.textButton.Name = "textButton";
+            this.textButton.Size = new System.Drawing.Size(46, 17);
+            this.textButton.TabIndex = 3;
+            this.textButton.TabStop = true;
+            this.textButton.Text = "Text";
+            this.textButton.UseVisualStyleBackColor = true;
+            // 
+            // ellispeButton
+            // 
+            this.ellispeButton.AutoSize = true;
+            this.ellispeButton.Location = new System.Drawing.Point(23, 65);
+            this.ellispeButton.Name = "ellispeButton";
+            this.ellispeButton.Size = new System.Drawing.Size(55, 17);
+            this.ellispeButton.TabIndex = 2;
+            this.ellispeButton.TabStop = true;
+            this.ellispeButton.Text = "Ellipse";
+            this.ellispeButton.UseVisualStyleBackColor = true;
+            // 
+            // rectangleButton
+            // 
+            this.rectangleButton.AutoSize = true;
+            this.rectangleButton.Location = new System.Drawing.Point(23, 42);
+            this.rectangleButton.Name = "rectangleButton";
+            this.rectangleButton.Size = new System.Drawing.Size(74, 17);
+            this.rectangleButton.TabIndex = 1;
+            this.rectangleButton.TabStop = true;
+            this.rectangleButton.Text = "Rectangle";
+            this.rectangleButton.UseVisualStyleBackColor = true;
+            // 
+            // lineButton
+            // 
+            this.lineButton.AutoSize = true;
+            this.lineButton.Location = new System.Drawing.Point(24, 19);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.Size = new System.Drawing.Size(45, 17);
+            this.lineButton.TabIndex = 0;
+            this.lineButton.TabStop = true;
+            this.lineButton.Text = "Line";
+            this.lineButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
