@@ -25,6 +25,9 @@ namespace PaintLab
         // Pen Width List Box 3 Strings
         public List<string> penWidthItems = new List<string>();
 
+        // hold current draw control selected
+        public string currentDrawControl;
+
         public Form1()
         {
             InitializeComponent();
@@ -60,7 +63,31 @@ namespace PaintLab
 
         private void bottomPanel_Paint(object sender, PaintEventArgs e)
         {
+            // get graphics object
+            Graphics g = e.Graphics;
+            
+        }
 
+        private void checkedChanged(object sender, EventArgs e)
+        {
+            // init current control string
+            currentDrawControl = null;
+
+            // loop through each control in the draw groupbox
+            foreach (Control control in drawGroupBox.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    // check which button is checked
+                    if (radio.Checked)
+                    {
+                        // set string to the currently checked control
+                        currentDrawControl = radio.Text;
+                    }
+                }
+            }
+            this.Text = currentDrawControl;
         }
     }
 }

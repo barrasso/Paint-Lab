@@ -178,6 +178,7 @@
             this.textButton.TabStop = true;
             this.textButton.Text = "Text";
             this.textButton.UseVisualStyleBackColor = true;
+            this.textButton.CheckedChanged += new System.EventHandler(this.checkedChanged);
             // 
             // ellispeButton
             // 
@@ -189,6 +190,7 @@
             this.ellispeButton.TabStop = true;
             this.ellispeButton.Text = "Ellipse";
             this.ellispeButton.UseVisualStyleBackColor = true;
+            this.ellispeButton.CheckedChanged += new System.EventHandler(this.checkedChanged);
             // 
             // rectangleButton
             // 
@@ -200,6 +202,7 @@
             this.rectangleButton.TabStop = true;
             this.rectangleButton.Text = "Rectangle";
             this.rectangleButton.UseVisualStyleBackColor = true;
+            this.rectangleButton.CheckedChanged += new System.EventHandler(this.checkedChanged);
             // 
             // lineButton
             // 
@@ -211,6 +214,7 @@
             this.lineButton.TabStop = true;
             this.lineButton.Text = "Line";
             this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.CheckedChanged += new System.EventHandler(this.checkedChanged);
             // 
             // listBox3
             // 
