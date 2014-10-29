@@ -107,11 +107,32 @@ namespace PaintLab
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // loop through list box2
+            foreach (string fillColor in fillColorItems)
+            {
+                // set the current index to a string
+                string currentIndex = listBox2.SelectedItem.ToString();
+                // compare strings
+                if(fillColor == currentIndex)
+                {
+                    this.Text = currentIndex;
+                }
+            }
         }
 
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // loop through list box 3
+            foreach (string penWidth in penWidthItems)
+            {
+                // set the current index to a string
+                string currentIndex = listBox3.SelectedItem.ToString();
+                // compare strings
+                if(penWidth == currentIndex)
+                {
+                    this.Text = currentIndex;
+                }
+            }
 
         }
 
