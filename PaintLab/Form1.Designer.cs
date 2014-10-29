@@ -44,6 +44,10 @@
             this.ellispeButton = new System.Windows.Forms.RadioButton();
             this.rectangleButton = new System.Windows.Forms.RadioButton();
             this.lineButton = new System.Windows.Forms.RadioButton();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.drawGroupBox.SuspendLayout();
@@ -106,6 +110,10 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.topPanel.Controls.Add(this.label3);
+            this.topPanel.Controls.Add(this.label2);
+            this.topPanel.Controls.Add(this.label1);
+            this.topPanel.Controls.Add(this.listBox3);
             this.topPanel.Controls.Add(this.listBox2);
             this.topPanel.Controls.Add(this.listBox1);
             this.topPanel.Controls.Add(this.drawGroupBox);
@@ -117,7 +125,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(382, 47);
+            this.listBox2.Location = new System.Drawing.Point(378, 47);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(68, 69);
             this.listBox2.TabIndex = 2;
@@ -200,6 +208,41 @@
             this.lineButton.Text = "Line";
             this.lineButton.UseVisualStyleBackColor = true;
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(479, 47);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(107, 134);
+            this.listBox3.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(279, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Pen Color";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(375, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Fill Color";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(476, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Pen Width";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +257,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.drawGroupBox.ResumeLayout(false);
             this.drawGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -239,6 +283,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

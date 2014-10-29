@@ -16,11 +16,14 @@ namespace PaintLab
         // array list to hold graphic objects for painting
         public ArrayList graphicsList = new ArrayList();
 
-        // Pen Color List Box Strings
+        // Pen Color List Box 1 Strings
         public List<string> penColorItems = new List<string>();
 
-        // Fill Color List Box Strings
+        // Fill Color List Box 2 Strings
         public List<string> fillColorItems = new List<string>();
+
+        // Pen Width List Box 3 Strings
+        public List<string> penWidthItems = new List<string>();
 
         public Form1()
         {
@@ -40,6 +43,19 @@ namespace PaintLab
             fillColorItems.Add("Blue");
             fillColorItems.Add("Green");
             listBox2.DataSource = fillColorItems;
+
+            // Add items to ListBox3
+            penWidthItems.Add("1");
+            penWidthItems.Add("2");
+            penWidthItems.Add("3");
+            penWidthItems.Add("4");
+            penWidthItems.Add("5");
+            penWidthItems.Add("6");
+            penWidthItems.Add("7");
+            penWidthItems.Add("8");
+            penWidthItems.Add("9");
+            penWidthItems.Add("10");
+            listBox3.DataSource = penWidthItems;
         }
 
         private void bottomPanel_Paint(object sender, PaintEventArgs e)
