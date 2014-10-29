@@ -68,6 +68,7 @@ namespace PaintLab
             
         }
 
+        // check for radio button change in draw groupbox
         private void checkedChanged(object sender, EventArgs e)
         {
             // init current control string
@@ -87,7 +88,32 @@ namespace PaintLab
                     }
                 }
             }
-            this.Text = currentDrawControl;
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // loop through list box1
+            foreach (string penColor in penColorItems)
+            {
+                // set the currentindex to a string
+                string currentIndex = listBox1.SelectedItem.ToString();
+                // compare strings
+                if(penColor == currentIndex)
+                {
+                    this.Text = currentIndex;
+                }
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
