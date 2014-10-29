@@ -36,6 +36,8 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.drawGroupBox = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textButton = new System.Windows.Forms.RadioButton();
@@ -104,11 +106,29 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.topPanel.Controls.Add(this.listBox2);
+            this.topPanel.Controls.Add(this.listBox1);
             this.topPanel.Controls.Add(this.drawGroupBox);
             this.topPanel.Location = new System.Drawing.Point(0, 27);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(617, 235);
             this.topPanel.TabIndex = 2;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(382, 47);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(68, 69);
+            this.listBox2.TabIndex = 2;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(282, 47);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(66, 69);
+            this.listBox1.TabIndex = 1;
             // 
             // drawGroupBox
             // 
@@ -217,6 +237,8 @@
         private System.Windows.Forms.RadioButton ellispeButton;
         private System.Windows.Forms.RadioButton rectangleButton;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
 
