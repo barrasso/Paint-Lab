@@ -48,6 +48,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.fillCheckBox = new System.Windows.Forms.CheckBox();
+            this.outlineCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.drawGroupBox.SuspendLayout();
@@ -110,6 +112,8 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.topPanel.Controls.Add(this.outlineCheckBox);
+            this.topPanel.Controls.Add(this.fillCheckBox);
             this.topPanel.Controls.Add(this.label3);
             this.topPanel.Controls.Add(this.label2);
             this.topPanel.Controls.Add(this.label1);
@@ -243,6 +247,26 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Pen Width";
             // 
+            // fillCheckBox
+            // 
+            this.fillCheckBox.AutoSize = true;
+            this.fillCheckBox.Location = new System.Drawing.Point(349, 163);
+            this.fillCheckBox.Name = "fillCheckBox";
+            this.fillCheckBox.Size = new System.Drawing.Size(38, 17);
+            this.fillCheckBox.TabIndex = 7;
+            this.fillCheckBox.Text = "Fill";
+            this.fillCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // outlineCheckBox
+            // 
+            this.outlineCheckBox.AutoSize = true;
+            this.outlineCheckBox.Location = new System.Drawing.Point(349, 187);
+            this.outlineCheckBox.Name = "outlineCheckBox";
+            this.outlineCheckBox.Size = new System.Drawing.Size(59, 17);
+            this.outlineCheckBox.TabIndex = 8;
+            this.outlineCheckBox.Text = "Outline";
+            this.outlineCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +311,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox outlineCheckBox;
+        private System.Windows.Forms.CheckBox fillCheckBox;
     }
 }
 
