@@ -36,11 +36,15 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.drawGroupBox = new System.Windows.Forms.GroupBox();
             this.lineButton = new System.Windows.Forms.RadioButton();
+            this.rectangleButton = new System.Windows.Forms.RadioButton();
+            this.ellispeButton = new System.Windows.Forms.RadioButton();
+            this.textButton = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.topPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.drawGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // paintPanel
@@ -100,33 +104,82 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.DarkGray;
-            this.topPanel.Controls.Add(this.groupBox1);
+            this.topPanel.Controls.Add(this.drawGroupBox);
             this.topPanel.Location = new System.Drawing.Point(0, 27);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(617, 235);
             this.topPanel.TabIndex = 2;
             // 
-            // groupBox1
+            // drawGroupBox
             // 
-            this.groupBox1.Controls.Add(this.lineButton);
-            this.groupBox1.Location = new System.Drawing.Point(37, 34);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 183);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Draw";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.drawGroupBox.Controls.Add(this.textBox1);
+            this.drawGroupBox.Controls.Add(this.textButton);
+            this.drawGroupBox.Controls.Add(this.ellispeButton);
+            this.drawGroupBox.Controls.Add(this.rectangleButton);
+            this.drawGroupBox.Controls.Add(this.lineButton);
+            this.drawGroupBox.Location = new System.Drawing.Point(37, 34);
+            this.drawGroupBox.Name = "drawGroupBox";
+            this.drawGroupBox.Size = new System.Drawing.Size(219, 183);
+            this.drawGroupBox.TabIndex = 0;
+            this.drawGroupBox.TabStop = false;
+            this.drawGroupBox.Text = "Draw";
+            this.drawGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lineButton
             // 
             this.lineButton.AutoSize = true;
-            this.lineButton.Location = new System.Drawing.Point(41, 36);
+            this.lineButton.Location = new System.Drawing.Point(24, 19);
             this.lineButton.Name = "lineButton";
             this.lineButton.Size = new System.Drawing.Size(45, 17);
             this.lineButton.TabIndex = 0;
             this.lineButton.TabStop = true;
             this.lineButton.Text = "Line";
             this.lineButton.UseVisualStyleBackColor = true;
+            // 
+            // rectangleButton
+            // 
+            this.rectangleButton.AutoSize = true;
+            this.rectangleButton.Location = new System.Drawing.Point(23, 42);
+            this.rectangleButton.Name = "rectangleButton";
+            this.rectangleButton.Size = new System.Drawing.Size(74, 17);
+            this.rectangleButton.TabIndex = 1;
+            this.rectangleButton.TabStop = true;
+            this.rectangleButton.Text = "Rectangle";
+            this.rectangleButton.UseVisualStyleBackColor = true;
+            // 
+            // ellispeButton
+            // 
+            this.ellispeButton.AutoSize = true;
+            this.ellispeButton.Location = new System.Drawing.Point(23, 65);
+            this.ellispeButton.Name = "ellispeButton";
+            this.ellispeButton.Size = new System.Drawing.Size(55, 17);
+            this.ellispeButton.TabIndex = 2;
+            this.ellispeButton.TabStop = true;
+            this.ellispeButton.Text = "Ellipse";
+            this.ellispeButton.UseVisualStyleBackColor = true;
+            // 
+            // textButton
+            // 
+            this.textButton.AutoSize = true;
+            this.textButton.Location = new System.Drawing.Point(23, 88);
+            this.textButton.Name = "textButton";
+            this.textButton.Size = new System.Drawing.Size(46, 17);
+            this.textButton.TabIndex = 3;
+            this.textButton.TabStop = true;
+            this.textButton.Text = "Text";
+            this.textButton.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.AcceptsReturn = true;
+            this.textBox1.Location = new System.Drawing.Point(23, 111);
+            this.textBox1.MaxLength = 500000;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(196, 72);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.WordWrap = false;
             // 
             // Form1
             // 
@@ -142,8 +195,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.topPanel.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.drawGroupBox.ResumeLayout(false);
+            this.drawGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,8 +212,12 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.Panel topPanel;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox drawGroupBox;
         private System.Windows.Forms.RadioButton lineButton;
+        private System.Windows.Forms.RadioButton textButton;
+        private System.Windows.Forms.RadioButton ellispeButton;
+        private System.Windows.Forms.RadioButton rectangleButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
