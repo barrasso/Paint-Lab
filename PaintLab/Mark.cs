@@ -14,9 +14,6 @@ namespace PaintLab
 {
     public class Mark
     {
-        //flags
-        public bool isOutlined;
-        public bool isFilled;
 
         public virtual void drawShape (Graphics g)
         {

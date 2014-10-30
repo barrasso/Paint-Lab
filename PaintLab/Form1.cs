@@ -101,8 +101,6 @@ namespace PaintLab
                 // check if obj is myrect
                 else if(obj.GetType() == typeof(MyRect))
                 {
-                    obj.isFilled = isFillChecked;
-                    obj.isOutlined = isOutlineChecked;
                     obj.drawShape(g);
                 }
             }
@@ -294,9 +292,26 @@ namespace PaintLab
                         graphicsList.Add(newLine);
                         break;
                     case "Rectangle":
-                        MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
-                        graphicsList.Add(newRect);
-                        break;
+                        if(isOutlineChecked && isFillChecked)
+                        {
+                            MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                            graphicsList.Add(newRect);
+                            break;
+                        }
+                        else if(!isOutlineChecked && isFillChecked)
+                        {
+                            MyRect newRect = new MyRect(firstPoint, secondPoint, currentFillColor);
+                            graphicsList.Add(newRect);
+                            break;
+                        }
+                        else if (isOutlineChecked && !isFillChecked)
+                        {
+                            MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor);
+                            graphicsList.Add(newRect);
+                            break;
+                        }
+                        else
+                            break;
                     case "Ellipse":
                         this.Text = currentDrawControl;
                         break;

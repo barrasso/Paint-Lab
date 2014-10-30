@@ -32,7 +32,41 @@ namespace PaintLab
         // fill color
         public Brush rectFillColor;
 
-        // constructor
+        // outline constructor
+        public MyRect(Point first, Point second, Pen penColor)
+        {
+            firstPoint = first;
+            secondPoint = second;
+            rectPenColor = penColor;
+            rectFillColor = null;
+
+            // calculate length and width
+            length = secondPoint.X - firstPoint.X;
+            width = secondPoint.Y - firstPoint.Y;
+            size = new Size(width, length);
+
+            // create rectangle
+            rectangle = new Rectangle(firstPoint, size);
+        }
+
+        // fill constructor
+        public MyRect(Point first, Point second, Brush fillColor)
+        {
+            firstPoint = first;
+            secondPoint = second;
+            rectFillColor = fillColor;
+            rectPenColor = null;
+
+            // calculate length and width
+            length = secondPoint.X - firstPoint.X;
+            width = secondPoint.Y - firstPoint.Y;
+            size = new Size(width, length);
+
+            // create rectangle
+            rectangle = new Rectangle(firstPoint, size);
+        }
+
+        // both constructor
         public MyRect(Point first, Point second, Pen penColor, Brush fillColor)
         {
             firstPoint = first;
@@ -51,15 +85,15 @@ namespace PaintLab
 
         public override void drawShape(Graphics g)
         {
-            if (this.isOutlined && this.isFilled)
+            if (rectFillColor == null)
+                g.DrawRectangle(rectPenColor, rectangle);
+            else if (rectPenColor == null)
+                g.FillRectangle(rectFillColor, rectangle);
+            else
             {
-                g.DrawRectangle(rectPenColor, rectangle);
                 g.FillRectangle(rectFillColor, rectangle);
+                g.DrawRectangle(rectPenColor, rectangle);
             }
-            else if (!this.isOutlined && this.isFilled)
-                g.FillRectangle(rectFillColor, rectangle);
-            else if (this.isOutlined && !this.isFilled)
-                g.DrawRectangle(rectPenColor, rectangle);
         }
     }
 }
