@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PaintLab
 {
-    public class Lines
+    public class Lines : Mark
     {
         // first point
         public Point firstPoint;
@@ -25,6 +25,11 @@ namespace PaintLab
             firstPoint = first;
             secondPoint = second;
             linePenColor = thePen;
+        }
+
+        public override void drawShape(Graphics g)
+        {
+            g.DrawLine(linePenColor, firstPoint, secondPoint);
         }
     }
 }

@@ -92,10 +92,19 @@ namespace PaintLab
             // get graphics object
             Graphics g = e.Graphics;
 
-            // print each object in the list
-            foreach (Lines myLine in graphicsList)
+            foreach(Mark obj in graphicsList)
             {
-                g.DrawLine(myLine.linePenColor, myLine.firstPoint, myLine.secondPoint);
+                // if object is a line
+                if(obj.GetType() == typeof(Lines))
+                    obj.drawShape(g);
+
+                // check if obj is myrect
+                else if(obj.GetType() == typeof(MyRect))
+                {
+                    obj.isFilled = isFillChecked;
+                    obj.isOutlined = isOutlineChecked;
+                    obj.drawShape(g);
+                }
             }
         }
 
@@ -276,7 +285,7 @@ namespace PaintLab
             {
                 // set second points
                 secondPoint = new Point(e.X, e.Y);
-
+                
                 // determine which object to draw
                 switch (currentDrawControl)
                 {
@@ -285,7 +294,8 @@ namespace PaintLab
                         graphicsList.Add(newLine);
                         break;
                     case "Rectangle":
-                        this.Text = currentDrawControl;
+                        MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                        graphicsList.Add(newRect);
                         break;
                     case "Ellipse":
                         this.Text = currentDrawControl;
@@ -303,6 +313,7 @@ namespace PaintLab
             // must invalidate
             this.paintPanel.Refresh();
         }
+        
 
     }
 }

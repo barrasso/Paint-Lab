@@ -51,6 +51,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Lines.cs" />
+    <Compile Include="Mark.cs" />
+    <Compile Include="MyEllipse.cs" />
+    <Compile Include="MyRect.cs" />
+    <Compile Include="MyText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
