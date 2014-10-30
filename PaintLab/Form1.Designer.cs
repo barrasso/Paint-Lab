@@ -62,6 +62,7 @@
             this.paintPanel.Size = new System.Drawing.Size(617, 237);
             this.paintPanel.TabIndex = 0;
             this.paintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bottomPanel_Paint);
+            this.paintPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.paintPanel_MouseClick);
             // 
             // menuStrip1
             // 
@@ -263,6 +264,7 @@
             this.fillCheckBox.TabIndex = 7;
             this.fillCheckBox.Text = "Fill";
             this.fillCheckBox.UseVisualStyleBackColor = true;
+            this.fillCheckBox.CheckedChanged += new System.EventHandler(this.fillCheckBox_CheckedChanged);
             // 
             // outlineCheckBox
             // 
@@ -273,6 +275,7 @@
             this.outlineCheckBox.TabIndex = 8;
             this.outlineCheckBox.Text = "Outline";
             this.outlineCheckBox.UseVisualStyleBackColor = true;
+            this.outlineCheckBox.CheckedChanged += new System.EventHandler(this.outlineCheckBox_CheckedChanged);
             // 
             // Form1
             // 

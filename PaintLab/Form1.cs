@@ -28,6 +28,32 @@ namespace PaintLab
         // hold current draw control selected
         public string currentDrawControl;
 
+        // current pen color
+        public Pen currentPenColor;
+
+        // current fill color 
+        public Brush currentFillColor;
+
+        // current pen width
+        public int currentPenWidth;
+
+        // flag to check fill check box
+        public bool isFillChecked;
+
+        // flag to check outline check box
+        public bool isOutlineChecked;
+
+        // flag to check mouse clicks
+        public bool hasBeenClicked;
+
+        // First mouse click point
+        public Point firstPoint;
+
+        // second mouse click point
+        public Point secondPoint;
+
+
+        // default constructor
         public Form1()
         {
             InitializeComponent();
@@ -65,7 +91,29 @@ namespace PaintLab
         {
             // get graphics object
             Graphics g = e.Graphics;
+
+            // determine which object to draw
+            switch (currentDrawControl)
+            {
+                case "Line":
+                    g.DrawLine(currentPenColor, firstPoint, secondPoint);
+                    MessageBox.Show("Wat");
+                    break;
+                case "Rectangle":
+                    this.Text = currentDrawControl;
+                    break;
+                case "Ellipse":
+                    this.Text = currentDrawControl;
+                    break;
+                case "Text":
+                    this.Text = currentDrawControl;
+                    break;
+                default:
+                    break;
+            }
             
+            // must invalidate
+            this.Invalidate();
         }
 
         // check for radio button change in draw groupbox
@@ -90,6 +138,7 @@ namespace PaintLab
             }
         }
 
+        // handle pen color list box index changes
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // loop through list box1
@@ -100,11 +149,29 @@ namespace PaintLab
                 // compare strings
                 if(penColor == currentIndex)
                 {
-                    this.Text = currentIndex;
+                    // set current pen color based on selected
+                    switch(currentIndex)
+                    {
+                        case "Black":
+                            currentPenColor = new Pen(Color.Black);
+                            break;
+                        case "Red":
+                            currentPenColor = new Pen(Color.Red);
+                            break;
+                        case "Blue":
+                            currentPenColor = new Pen(Color.Blue);
+                            break;
+                        case "Green":
+                            currentPenColor = new Pen(Color.Green);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
 
+        // handle fill color list box index changes
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             // loop through list box2
@@ -115,11 +182,32 @@ namespace PaintLab
                 // compare strings
                 if(fillColor == currentIndex)
                 {
-                    this.Text = currentIndex;
+                    // set current fill color based on index
+                    switch (currentIndex)
+                    {
+                        case "White":
+                            currentFillColor = Brushes.White;
+                            break;
+                        case "Black":
+                            currentFillColor = Brushes.Black;
+                            break;
+                        case "Red":
+                            currentFillColor = Brushes.Red;
+                            break;
+                        case "Blue":
+                            currentFillColor = Brushes.Blue;
+                            break;
+                        case "Green":
+                            currentFillColor = Brushes.Green;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
 
+        // handle pen width list box index changes
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             // loop through list box 3
@@ -130,10 +218,78 @@ namespace PaintLab
                 // compare strings
                 if(penWidth == currentIndex)
                 {
-                    this.Text = currentIndex;
+                    // set pen width based on selected index
+                    switch(currentIndex)
+                    {
+                        case "1":
+                            currentPenWidth = 1;
+                            break;
+                        case "2":
+                            currentPenWidth = 2;
+                            break;
+                        case "3":
+                            currentPenWidth = 3;
+                            break;
+                        case "4":
+                            currentPenWidth = 4;
+                            break;
+                        case "5":
+                            currentPenWidth = 5;
+                            break;
+                        case "6":
+                            currentPenWidth = 6;
+                            break;
+                        case "7":
+                            currentPenWidth = 7;
+                            break;
+                        case "8":
+                            currentPenWidth = 8;
+                            break;
+                        case "9":
+                            currentPenWidth = 9;
+                            break;
+                        case "10":
+                            currentPenWidth = 10;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
+        }
 
+        // handle fill check box changes
+        private void fillCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fillCheckBox.Checked) isFillChecked = true;
+            else isFillChecked = false;
+        }
+
+        // handle outline check box changes
+        private void outlineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (outlineCheckBox.Checked) isOutlineChecked = true;
+            else isOutlineChecked = false;
+        }
+
+        // handle clicks in the paint panel
+        private void paintPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (!hasBeenClicked)
+            {
+                // set first point
+                firstPoint = new Point(e.X, e.Y);
+                hasBeenClicked = true;
+            }
+            else
+            {
+                // set second points
+                secondPoint = new Point(e.X, e.Y);
+                hasBeenClicked = false;
+            }
+
+            // must invalidate
+            this.Invalidate();
         }
 
     }
