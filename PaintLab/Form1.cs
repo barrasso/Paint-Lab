@@ -97,23 +97,23 @@ namespace PaintLab
             {
                 case "Line":
                     g.DrawLine(currentPenColor, firstPoint, secondPoint);
-                    MessageBox.Show("Wat");
+                    MessageBox.Show("Wat line");
                     break;
                 case "Rectangle":
                     this.Text = currentDrawControl;
+                    MessageBox.Show("Wat rectangle");
                     break;
                 case "Ellipse":
                     this.Text = currentDrawControl;
+                    MessageBox.Show("Wat ellipse");
                     break;
                 case "Text":
                     this.Text = currentDrawControl;
+                    MessageBox.Show("Wat text");
                     break;
                 default:
                     break;
             }
-            
-            // must invalidate
-            this.Invalidate();
         }
 
         // check for radio button change in draw groupbox
@@ -136,6 +136,7 @@ namespace PaintLab
                     }
                 }
             }
+            this.paintPanel.Refresh();
         }
 
         // handle pen color list box index changes
@@ -169,6 +170,7 @@ namespace PaintLab
                     }
                 }
             }
+            this.paintPanel.Refresh();
         }
 
         // handle fill color list box index changes
@@ -205,6 +207,7 @@ namespace PaintLab
                     }
                 }
             }
+            this.paintPanel.Refresh();
         }
 
         // handle pen width list box index changes
@@ -256,6 +259,7 @@ namespace PaintLab
                     }
                 }
             }
+            this.paintPanel.Refresh();
         }
 
         // handle fill check box changes
@@ -263,6 +267,8 @@ namespace PaintLab
         {
             if (fillCheckBox.Checked) isFillChecked = true;
             else isFillChecked = false;
+
+            this.paintPanel.Refresh();
         }
 
         // handle outline check box changes
@@ -270,6 +276,8 @@ namespace PaintLab
         {
             if (outlineCheckBox.Checked) isOutlineChecked = true;
             else isOutlineChecked = false;
+
+            this.paintPanel.Refresh();
         }
 
         // handle clicks in the paint panel
@@ -289,7 +297,7 @@ namespace PaintLab
             }
 
             // must invalidate
-            this.Invalidate();
+            this.paintPanel.Refresh();
         }
 
     }
