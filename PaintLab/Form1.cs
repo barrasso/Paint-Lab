@@ -92,27 +92,10 @@ namespace PaintLab
             // get graphics object
             Graphics g = e.Graphics;
 
-            // determine which object to draw
-            switch (currentDrawControl)
+            // print each object in the list
+            foreach (Lines myLine in graphicsList)
             {
-                case "Line":
-                    g.DrawLine(currentPenColor, firstPoint, secondPoint);
-                    MessageBox.Show("Wat line");
-                    break;
-                case "Rectangle":
-                    this.Text = currentDrawControl;
-                    MessageBox.Show("Wat rectangle");
-                    break;
-                case "Ellipse":
-                    this.Text = currentDrawControl;
-                    MessageBox.Show("Wat ellipse");
-                    break;
-                case "Text":
-                    this.Text = currentDrawControl;
-                    MessageBox.Show("Wat text");
-                    break;
-                default:
-                    break;
+                g.DrawLine(myLine.linePenColor, myLine.firstPoint, myLine.secondPoint);
             }
         }
 
@@ -293,6 +276,27 @@ namespace PaintLab
             {
                 // set second points
                 secondPoint = new Point(e.X, e.Y);
+
+                // determine which object to draw
+                switch (currentDrawControl)
+                {
+                    case "Line":
+                        Lines newLine = new Lines(firstPoint, secondPoint, currentPenColor);
+                        graphicsList.Add(newLine);
+                        break;
+                    case "Rectangle":
+                        this.Text = currentDrawControl;
+                        break;
+                    case "Ellipse":
+                        this.Text = currentDrawControl;
+                        break;
+                    case "Text":
+                        this.Text = currentDrawControl;
+                        break;
+                    default:
+                        break;
+                }
+
                 hasBeenClicked = false;
             }
 
