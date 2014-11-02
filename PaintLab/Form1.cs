@@ -294,9 +294,47 @@ namespace PaintLab
                     case "Rectangle":
                         if(isOutlineChecked && isFillChecked)
                         {
-                            MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
-                            graphicsList.Add(newRect);
-                            break;
+                            // if user clicks bottom right corner then upper left
+                            if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                MyRect newRect = new MyRect(secondPoint, firstPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newRect);
+                                break;
+                            }
+                            // if user clicks upper right corner then lower left
+                            else if (firstPoint.X > secondPoint.X && firstPoint.Y < secondPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.X;
+                                firstPoint.X = secondPoint.X;
+                                secondPoint.X = temp;
+
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newRect);
+                                break;
+                            }
+                            // if user clicks lower left then upper right
+                            else if (secondPoint.X > firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.Y;
+                                firstPoint.Y = secondPoint.Y;
+                                secondPoint.Y = temp;
+
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newRect);
+                                break;
+                            }
+                            
+                            else
+                            {
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newRect);
+                                break;
+                            }
+
                         }
                         else if(!isOutlineChecked && isFillChecked)
                         {

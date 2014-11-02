@@ -43,7 +43,7 @@ namespace PaintLab
             // calculate length and width
             length = secondPoint.X - firstPoint.X;
             width = secondPoint.Y - firstPoint.Y;
-            size = new Size(width, length);
+            size = new Size(length, width);
 
             // create rectangle
             rectangle = new Rectangle(firstPoint, size);
@@ -60,7 +60,7 @@ namespace PaintLab
             // calculate length and width
             length = secondPoint.X - firstPoint.X;
             width = secondPoint.Y - firstPoint.Y;
-            size = new Size(width, length);
+            size = new Size(length, width);
 
             // create rectangle
             rectangle = new Rectangle(firstPoint, size);
@@ -77,7 +77,7 @@ namespace PaintLab
             // calculate length and width
             length = secondPoint.X - firstPoint.X;
             width = secondPoint.Y - firstPoint.Y;
-            size = new Size(width, length);
+            size = new Size(length, width);
 
             // create rectangle
             rectangle = new Rectangle(firstPoint, size);
