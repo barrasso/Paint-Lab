@@ -17,19 +17,27 @@ namespace PaintLab
         public Point firstPoint;
         // second point
         public Point secondPoint;
+        // pen
+        public Pen linePen;
         // pen color
-        public Pen linePenColor;
+        public Brush linePenColor;
+        //pen width
+        public float linePenWidth;
 
-        public Lines(Point first, Point second, Pen thePen)
+        public Lines(Point first, Point second, Brush penColor, float penWidth)
         {
             firstPoint = first;
             secondPoint = second;
-            linePenColor = thePen;
+            linePenColor = penColor;
+            linePenWidth = penWidth;
+
+            // create new pen
+            linePen = new Pen(linePenColor, penWidth);
         }
 
         public override void drawShape(Graphics g)
         {
-            g.DrawLine(linePenColor, firstPoint, secondPoint);
+            g.DrawLine(linePen, firstPoint, secondPoint);
         }
     }
 }

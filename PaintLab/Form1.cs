@@ -38,7 +38,7 @@ namespace PaintLab
         public Brush currentFillColor;
 
         // current pen width
-        public int currentPenWidth;
+        public float currentPenWidth;
 
         // flag to check fill check box
         public bool isFillChecked;
@@ -308,7 +308,7 @@ namespace PaintLab
                 switch (currentDrawControl)
                 {
                     case "Line":
-                        Lines newLine = new Lines(firstPoint, secondPoint, currentPenColor);
+                        Lines newLine = new Lines(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                         graphicsList.Add(newLine);
                         break;
                     case "Rectangle":
@@ -318,7 +318,7 @@ namespace PaintLab
                             // if user clicks bottom right corner then upper left
                             if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
                             {
-                                MyRect newRect = new MyRect(secondPoint, firstPoint, currentPenColor, currentFillColor);
+                                MyRect newRect = new MyRect(secondPoint, firstPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -331,7 +331,7 @@ namespace PaintLab
                                 firstPoint.X = secondPoint.X;
                                 secondPoint.X = temp;
 
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -344,14 +344,14 @@ namespace PaintLab
                                 firstPoint.Y = secondPoint.Y;
                                 secondPoint.Y = temp;
 
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
                             
                             else
                             {
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -406,7 +406,7 @@ namespace PaintLab
                             // if user clicks bottom right corner then upper left
                             if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
                             {
-                                MyRect newRect = new MyRect(secondPoint, firstPoint, currentPenColor);
+                                MyRect newRect = new MyRect(secondPoint, firstPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -419,7 +419,7 @@ namespace PaintLab
                                 firstPoint.X = secondPoint.X;
                                 secondPoint.X = temp;
 
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -432,14 +432,14 @@ namespace PaintLab
                                 firstPoint.Y = secondPoint.Y;
                                 secondPoint.Y = temp;
 
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
 
                             else
                             {
-                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentPenColor);
+                                MyRect newRect = new MyRect(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newRect);
                                 break;
                             }
@@ -453,7 +453,7 @@ namespace PaintLab
                             // if user clicks bottom right corner then upper left
                             if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
                             {
-                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentPenColor, currentFillColor);
+                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
@@ -466,7 +466,7 @@ namespace PaintLab
                                 firstPoint.X = secondPoint.X;
                                 secondPoint.X = temp;
 
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
@@ -479,14 +479,14 @@ namespace PaintLab
                                 firstPoint.Y = secondPoint.Y;
                                 secondPoint.Y = temp;
 
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
 
                             else
                             {
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentFillColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
@@ -541,7 +541,7 @@ namespace PaintLab
                             // if user clicks bottom right corner then upper left
                             if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
                             {
-                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentPenColor);
+                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
@@ -554,7 +554,7 @@ namespace PaintLab
                                 firstPoint.X = secondPoint.X;
                                 secondPoint.X = temp;
 
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
@@ -567,14 +567,14 @@ namespace PaintLab
                                 firstPoint.Y = secondPoint.Y;
                                 secondPoint.Y = temp;
 
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }
 
                             else
                             {
-                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentTextColor, currentPenWidth);
                                 graphicsList.Add(newEllipse);
                                 break;
                             }

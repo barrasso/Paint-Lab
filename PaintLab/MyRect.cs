@@ -25,19 +25,30 @@ namespace PaintLab
         // rectangle
         public Rectangle rectangle;
 
+        // pen
+        public Pen rectPen;
         // pen color
-        public Pen rectPenColor;
+        public Brush rectPenColor;
+        //pen width
+        public float rectPenWidth;
 
         // fill color
         public Brush rectFillColor;
 
+        // pen width
+        public int penWidth;
+
         // outline constructor
-        public MyRect(Point first, Point second, Pen penColor)
+        public MyRect(Point first, Point second, Brush penColor, float penWidth)
         {
             firstPoint = first;
             secondPoint = second;
             rectPenColor = penColor;
+            rectPenWidth = penWidth;
             rectFillColor = null;
+
+            // create pen
+            rectPen = new Pen(rectPenColor, rectPenWidth);
 
             // calculate length and width
             length = secondPoint.X - firstPoint.X;
@@ -66,12 +77,16 @@ namespace PaintLab
         }
 
         // both constructor
-        public MyRect(Point first, Point second, Pen penColor, Brush fillColor)
+        public MyRect(Point first, Point second, Brush penColor, Brush fillColor, float penWidth)
         {
             firstPoint = first;
             secondPoint = second;
             rectPenColor = penColor;
             rectFillColor = fillColor;
+            rectPenWidth = penWidth;
+
+            // create pen
+            rectPen = new Pen(rectPenColor, rectPenWidth);
 
             // calculate length and width
             length = secondPoint.X - firstPoint.X;
@@ -85,13 +100,13 @@ namespace PaintLab
         public override void drawShape(Graphics g)
         {
             if (rectFillColor == null)
-                g.DrawRectangle(rectPenColor, rectangle);
+                g.DrawRectangle(rectPen, rectangle);
             else if (rectPenColor == null)
                 g.FillRectangle(rectFillColor, rectangle);
             else
             {
                 g.FillRectangle(rectFillColor, rectangle);
-                g.DrawRectangle(rectPenColor, rectangle);
+                g.DrawRectangle(rectPen, rectangle);
             }
         }
     }
