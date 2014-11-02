@@ -109,8 +109,9 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // topPanel
             // 

@@ -649,6 +649,16 @@ namespace PaintLab
             // exit application
             this.Close();
         }
+
+        // undo clicked
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // remove last item in graphics list
+            if (graphicsList.Count != 0) graphicsList.RemoveAt(graphicsList.Count - 1);
+
+            // refresh paint panel
+            this.paintPanel.Refresh();
+        }
         
 
     }
