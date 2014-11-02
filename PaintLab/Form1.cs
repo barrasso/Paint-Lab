@@ -103,6 +103,12 @@ namespace PaintLab
                 {
                     obj.drawShape(g);
                 }
+
+                // check if ob is myellipse
+                else if(obj.GetType() == typeof(MyEllipse))
+                {
+                    obj.drawShape(g);
+                }
             }
         }
 
@@ -281,7 +287,7 @@ namespace PaintLab
             }
             else
             {
-                // set second points
+                // set second point
                 secondPoint = new Point(e.X, e.Y);
                 
                 // determine which object to draw
@@ -427,8 +433,140 @@ namespace PaintLab
                         else
                             break;
                     case "Ellipse":
-                        this.Text = currentDrawControl;
-                        break;
+                        // IF BOTH CHECKBOXES ARE CHECKED
+                        if (isOutlineChecked && isFillChecked)
+                        {
+                            // if user clicks bottom right corner then upper left
+                            if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks upper right corner then lower left
+                            else if (firstPoint.X > secondPoint.X && firstPoint.Y < secondPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.X;
+                                firstPoint.X = secondPoint.X;
+                                secondPoint.X = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks lower left then upper right
+                            else if (secondPoint.X > firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.Y;
+                                firstPoint.Y = secondPoint.Y;
+                                secondPoint.Y = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+
+                            else
+                            {
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                        }
+                        // IF ONLY FILL IS CHECKED
+                        else if (!isOutlineChecked && isFillChecked)
+                        {
+                            // if user clicks bottom right corner then upper left
+                            if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks upper right corner then lower left
+                            else if (firstPoint.X > secondPoint.X && firstPoint.Y < secondPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.X;
+                                firstPoint.X = secondPoint.X;
+                                secondPoint.X = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks lower left then upper right
+                            else if (secondPoint.X > firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.Y;
+                                firstPoint.Y = secondPoint.Y;
+                                secondPoint.Y = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+
+                            else
+                            {
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentFillColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                        }
+                        // IF ONLY OUTLINE IS CHECKED
+                        else if (isOutlineChecked && !isFillChecked)
+                        {
+                            // if user clicks bottom right corner then upper left
+                            if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                MyEllipse newEllipse = new MyEllipse(secondPoint, firstPoint, currentPenColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks upper right corner then lower left
+                            else if (firstPoint.X > secondPoint.X && firstPoint.Y < secondPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.X;
+                                firstPoint.X = secondPoint.X;
+                                secondPoint.X = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                            // if user clicks lower left then upper right
+                            else if (secondPoint.X > firstPoint.X && secondPoint.Y < firstPoint.Y)
+                            {
+                                // invert the points
+                                int temp;
+                                temp = firstPoint.Y;
+                                firstPoint.Y = secondPoint.Y;
+                                secondPoint.Y = temp;
+
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+
+                            else
+                            {
+                                MyEllipse newEllipse = new MyEllipse(firstPoint, secondPoint, currentPenColor);
+                                graphicsList.Add(newEllipse);
+                                break;
+                            }
+                        }
+                        else
+                            break;
                     case "Text":
                         this.Text = currentDrawControl;
                         break;
