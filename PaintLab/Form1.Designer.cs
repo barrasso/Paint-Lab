@@ -36,6 +36,12 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.outlineCheckBox = new System.Windows.Forms.CheckBox();
+            this.fillCheckBox = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.drawGroupBox = new System.Windows.Forms.GroupBox();
@@ -44,12 +50,6 @@
             this.ellispeButton = new System.Windows.Forms.RadioButton();
             this.rectangleButton = new System.Windows.Forms.RadioButton();
             this.lineButton = new System.Windows.Forms.RadioButton();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.fillCheckBox = new System.Windows.Forms.CheckBox();
-            this.outlineCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.drawGroupBox.SuspendLayout();
@@ -126,6 +126,64 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(617, 235);
             this.topPanel.TabIndex = 2;
+            // 
+            // outlineCheckBox
+            // 
+            this.outlineCheckBox.AutoSize = true;
+            this.outlineCheckBox.Location = new System.Drawing.Point(349, 187);
+            this.outlineCheckBox.Name = "outlineCheckBox";
+            this.outlineCheckBox.Size = new System.Drawing.Size(59, 17);
+            this.outlineCheckBox.TabIndex = 8;
+            this.outlineCheckBox.Text = "Outline";
+            this.outlineCheckBox.UseVisualStyleBackColor = true;
+            this.outlineCheckBox.CheckedChanged += new System.EventHandler(this.outlineCheckBox_CheckedChanged);
+            // 
+            // fillCheckBox
+            // 
+            this.fillCheckBox.AutoSize = true;
+            this.fillCheckBox.Location = new System.Drawing.Point(349, 163);
+            this.fillCheckBox.Name = "fillCheckBox";
+            this.fillCheckBox.Size = new System.Drawing.Size(38, 17);
+            this.fillCheckBox.TabIndex = 7;
+            this.fillCheckBox.Text = "Fill";
+            this.fillCheckBox.UseVisualStyleBackColor = true;
+            this.fillCheckBox.CheckedChanged += new System.EventHandler(this.fillCheckBox_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(476, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Pen Width";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(375, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Fill Color";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(279, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Pen Color";
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(479, 47);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(107, 134);
+            this.listBox3.TabIndex = 3;
+            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // listBox2
             // 
@@ -218,64 +276,6 @@
             this.lineButton.Text = "Line";
             this.lineButton.UseVisualStyleBackColor = true;
             this.lineButton.CheckedChanged += new System.EventHandler(this.checkedChanged);
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(479, 47);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(107, 134);
-            this.listBox3.TabIndex = 3;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(279, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Pen Color";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(375, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Fill Color";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(476, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Pen Width";
-            // 
-            // fillCheckBox
-            // 
-            this.fillCheckBox.AutoSize = true;
-            this.fillCheckBox.Location = new System.Drawing.Point(349, 163);
-            this.fillCheckBox.Name = "fillCheckBox";
-            this.fillCheckBox.Size = new System.Drawing.Size(38, 17);
-            this.fillCheckBox.TabIndex = 7;
-            this.fillCheckBox.Text = "Fill";
-            this.fillCheckBox.UseVisualStyleBackColor = true;
-            this.fillCheckBox.CheckedChanged += new System.EventHandler(this.fillCheckBox_CheckedChanged);
-            // 
-            // outlineCheckBox
-            // 
-            this.outlineCheckBox.AutoSize = true;
-            this.outlineCheckBox.Location = new System.Drawing.Point(349, 187);
-            this.outlineCheckBox.Name = "outlineCheckBox";
-            this.outlineCheckBox.Size = new System.Drawing.Size(59, 17);
-            this.outlineCheckBox.TabIndex = 8;
-            this.outlineCheckBox.Text = "Outline";
-            this.outlineCheckBox.UseVisualStyleBackColor = true;
-            this.outlineCheckBox.CheckedChanged += new System.EventHandler(this.outlineCheckBox_CheckedChanged);
             // 
             // Form1
             // 

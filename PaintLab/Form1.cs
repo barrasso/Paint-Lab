@@ -31,6 +31,9 @@ namespace PaintLab
         // current pen color
         public Pen currentPenColor;
 
+        // current text color
+        public Brush currentTextColor;
+
         // current fill color 
         public Brush currentFillColor;
 
@@ -92,6 +95,7 @@ namespace PaintLab
             // get graphics object
             Graphics g = e.Graphics;
 
+            // draw the graphics objects
             foreach(Mark obj in graphicsList)
             {
                 // if object is a line
@@ -104,8 +108,14 @@ namespace PaintLab
                     obj.drawShape(g);
                 }
 
-                // check if ob is myellipse
+                // check if obj is myellipse
                 else if(obj.GetType() == typeof(MyEllipse))
+                {
+                    obj.drawShape(g);
+                }
+
+                // check if obj is mytext
+                else if(obj.GetType() == typeof(MyText))
                 {
                     obj.drawShape(g);
                 }
@@ -151,15 +161,19 @@ namespace PaintLab
                     {
                         case "Black":
                             currentPenColor = new Pen(Color.Black);
+                            currentTextColor = Brushes.Black;
                             break;
                         case "Red":
                             currentPenColor = new Pen(Color.Red);
+                            currentTextColor = Brushes.Red;
                             break;
                         case "Blue":
                             currentPenColor = new Pen(Color.Blue);
+                            currentTextColor = Brushes.Blue;
                             break;
                         case "Green":
                             currentPenColor = new Pen(Color.Green);
+                            currentTextColor = Brushes.Green;
                             break;
                         default:
                             break;
@@ -568,8 +582,46 @@ namespace PaintLab
                         else
                             break;
                     case "Text":
-                        this.Text = currentDrawControl;
-                        break;
+                        // if user clicks bottom right corner then upper left
+                        if (secondPoint.X < firstPoint.X && secondPoint.Y < firstPoint.Y)
+                        {
+                            MyText newText = new MyText(secondPoint, firstPoint, currentTextColor, textBox1.Text);
+                            graphicsList.Add(newText);
+                            break;
+                        }
+                        // if user clicks upper right corner then lower left
+                        else if (firstPoint.X > secondPoint.X && firstPoint.Y < secondPoint.Y)
+                        {
+                            // invert the points
+                            int temp;
+                            temp = firstPoint.X;
+                            firstPoint.X = secondPoint.X;
+                            secondPoint.X = temp;
+
+                            MyText newText = new MyText(firstPoint, secondPoint, currentTextColor, textBox1.Text);
+                            graphicsList.Add(newText);
+                            break;
+                        }
+                        // if user clicks lower left then upper right
+                        else if (secondPoint.X > firstPoint.X && secondPoint.Y < firstPoint.Y)
+                        {
+                            // invert the points
+                            int temp;
+                            temp = firstPoint.Y;
+                            firstPoint.Y = secondPoint.Y;
+                            secondPoint.Y = temp;
+
+                            MyText newText = new MyText(firstPoint, secondPoint, currentTextColor, textBox1.Text);
+                            graphicsList.Add(newText);
+                            break;
+                        }
+
+                        else
+                        {
+                            MyText newText = new MyText(firstPoint, secondPoint, currentTextColor, textBox1.Text);
+                            graphicsList.Add(newText);
+                            break;
+                        }
                     default:
                         break;
                 }
