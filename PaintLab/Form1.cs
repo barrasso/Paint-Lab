@@ -632,6 +632,23 @@ namespace PaintLab
             // must invalidate
             this.paintPanel.Refresh();
         }
+
+        // clear clicked
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // clear graphics list
+            if (graphicsList.Count != 0) graphicsList.Clear();
+            
+            // refresh paint panel
+            this.paintPanel.Refresh();
+        }
+
+        // exit clicked
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // exit application
+            this.Close();
+        }
         
 
     }
