@@ -98,27 +98,7 @@ namespace PaintLab
             // draw the graphics objects
             foreach(Mark obj in graphicsList)
             {
-                // if object is a line
-                if(obj.GetType() == typeof(Lines))
-                    obj.drawShape(g);
-
-                // check if obj is myrect
-                else if(obj.GetType() == typeof(MyRect))
-                {
-                    obj.drawShape(g);
-                }
-
-                // check if obj is myellipse
-                else if(obj.GetType() == typeof(MyEllipse))
-                {
-                    obj.drawShape(g);
-                }
-
-                // check if obj is mytext
-                else if(obj.GetType() == typeof(MyText))
-                {
-                    obj.drawShape(g);
-                }
+                obj.drawShape(g);
             }
         }
 
@@ -659,7 +639,5 @@ namespace PaintLab
             // refresh paint panel
             this.paintPanel.Refresh();
         }
-        
-
     }
 }
